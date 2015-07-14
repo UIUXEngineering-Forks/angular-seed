@@ -2,7 +2,7 @@
 /// <reference path="../../typings/angularjs/angular-route.d.ts" />
 
 
-module mod.view1 {
+module module.view1 {
 
     config.$inject = ['$routeProvider'];
     export function config($routeProvider:ng.route.IRouteProvider):void {

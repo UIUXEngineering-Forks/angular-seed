@@ -1,6 +1,6 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 
-module mod.view1 {
+module module.view2 {
 
     export class ctr {
 
@@ -9,7 +9,7 @@ module mod.view1 {
         public static $inject = ['$log'];
         constructor($log:ng.ILogService) {
             this.$log = $log;
-            this.logger('View1 Controller');
+            this.logger('View2 Controller');
         }
 
         private logger(value) {
