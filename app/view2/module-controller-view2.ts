@@ -2,7 +2,7 @@
 
 module module.view2 {
 
-    export class ctr {
+    export class controller {
 
         private $log;
 
