@@ -38,7 +38,11 @@ h&&m(h);return g})}})})(window)})(window);
 
     //Preload Configs
     $script([
-        'mod-cfg-app.js'
+        'cfg-app.js',
+        'view2/cfg-view2.js',
+        'view2/ctr-view2.js',
+        'view1/cfg-view1.js',
+        'view1/ctr-view1.js'
     ], 'preload');
 
     // load all of the dependencies asynchronously.
@@ -47,7 +51,7 @@ h&&m(h);return g})}})})(window)})(window);
             'bower_components/angular/angular.js',
             'bower_components/angular-route/angular-route.js',
             'mod-app.js',
-            'view1/view1.js',
+            'view1/mod-view1.js',
             'view2/mod-view2.js',
             'components/version/version.js',
             'components/version/version-directive.js',
