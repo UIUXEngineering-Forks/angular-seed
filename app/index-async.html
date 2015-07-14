@@ -39,10 +39,10 @@ h&&m(h);return g})}})})(window)})(window);
     //Preload Configs
     $script([
         'cfg-app.js',
-        'view2/cfg-view2.js',
-        'view2/ctr-view2.js',
-        'view1/cfg-view1.js',
-        'view1/ctr-view1.js'
+        'view2/module-config-view2.js',
+        'view2/module-controller-view2.js',
+        'view1/module-config-view1.js',
+        'view1/module-controller-view1.js'
     ], 'preload');
 
     // load all of the dependencies asynchronously.
@@ -51,9 +51,9 @@ h&&m(h);return g})}})})(window)})(window);
             'bower_components/angular/angular.js',
             'bower_components/angular-route/angular-route.js',
             'mod-app.js',
-            'view1/mod-view1.js',
-            'view2/mod-view2.js',
-            'components/version/version.js',
+            'view1/module-view1.js',
+            'view2/module-view2.js',
+            'components/version/module-version.js',
             'components/version/version-directive.js',
             'components/version/interpolate-filter.js'
         ], function() {
