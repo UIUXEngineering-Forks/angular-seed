@@ -14,7 +14,7 @@ module myApp.view1 {
     config.$inject = ['$routeProvider'];
     function config($routeProvider:ng.route.IRouteProvider):void {
         $routeProvider.when('/view1', {
-            templateUrl: 'view1/view1.html',
+            templateUrl: '/view1.html',
             controller: 'View1Ctrl'
         });
     }
