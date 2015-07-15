@@ -1,5 +1,5 @@
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-route.d.ts" />
+/// <reference path="../../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../../typings/angularjs/angular-route.d.ts" />
 
 
 module myApp.view1 {
@@ -14,7 +14,7 @@ module myApp.view1 {
     config.$inject = ['$routeProvider'];
     function config($routeProvider:ng.route.IRouteProvider):void {
         $routeProvider.when('/view1', {
-            templateUrl: '/view1.html',
+            templateUrl: 'scripts/view1/view1.html',
             controller: 'View1Ctrl'
         });
     }
