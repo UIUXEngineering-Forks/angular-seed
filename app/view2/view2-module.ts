@@ -2,14 +2,24 @@
 /// <reference path="../../typings/angularjs/angular-route.d.ts" />
 
 
-module mod.view2 {
+module myApp.view2 {
+    'use strict';
+
+    angular.module('myApp.view2', [
+        'ngRoute',
+        'myApp.view2.controller'])
+        .config(config);
 
     config.$inject = ['$routeProvider'];
-    export function config($routeProvider:ng.route.IRouteProvider):void {
+    function config($routeProvider:ng.route.IRouteProvider):void {
         $routeProvider.when('/view2', {
             templateUrl: 'view2/view2.html',
             controller: 'View2Ctrl'
         });
     }
+
+
+
+
 
 }

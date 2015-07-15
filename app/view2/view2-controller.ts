@@ -1,15 +1,17 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 
-module module.view1 {
+module myApp.view2 {
 
-    export class controller {
+
+
+    class controller {
 
         private $log;
 
         public static $inject = ['$log'];
         constructor($log:ng.ILogService) {
             this.$log = $log;
-            this.logger('View1 Controller');
+            this.logger('View2 Controller');
         }
 
         private logger(value) {
@@ -17,4 +19,9 @@ module module.view1 {
         }
 
     }
+
+    angular.module('myApp.view2.controller', [])
+        .controller('View2Ctrl', controller);
+
+    
 }
