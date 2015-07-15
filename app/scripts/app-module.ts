@@ -1,5 +1,6 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angularjs/angular-route.d.ts" />
+/// <reference path="services/sample-provider.ts" />
 
 module myApp {
 
@@ -9,12 +10,16 @@ module myApp {
         'ngRoute',
         'myApp.view1',
         'myApp.view2',
-        'myApp.version'
+        'myApp.version',
+        'myApp.sample.provider'
     ]).config(config);
 
 
-    config.$inject = ['$routeProvider'];
-    function config($routeProvider:ng.route.IRouteProvider):void {
+    config.$inject = ['$routeProvider', 'sampleProviderProvider'];
+    function config($routeProvider:ng.route.IRouteProvider, sampleProvider:myApp.sample.provider):void {
+
+        sampleProvider.setVersion('4.0');
+
         $routeProvider.otherwise({redirectTo: '/view1'});
     }
 

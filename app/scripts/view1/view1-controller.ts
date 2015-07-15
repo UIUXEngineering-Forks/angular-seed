@@ -7,10 +7,15 @@ module myApp.view1 {
 
         private $log;
 
-        public static $inject = ['$log'];
-        constructor($log:ng.ILogService) {
+        public static $inject = ['$scope', '$log', 'sampleProvider'];
+        constructor(public $scope:ng.IScope,
+                    $log:ng.ILogService,
+                    sampleProvider:string)
+        {
             this.$log = $log;
             this.logger('View1 Controller');
+            this.$scope.version = sampleProvider
+
         }
 
         private logger(value) {
