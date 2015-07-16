@@ -7,10 +7,10 @@ module myApp.sample {
 
         //public static $inject = ['version'];
 
-        private version:string;
+        private newVersion:string;
 
         setVersion(newVersion:string) {
-            this.version = newVersion;
+            this.newVersion = newVersion;
         }
 
         //TODO if can pass param into constructor
@@ -23,8 +23,8 @@ module myApp.sample {
         $get(oldVersion:string):string {
             var _self = this;
 
-            if (_self.version) {
-                return _self.version;
+            if (_self.newVersion) {
+                return _self.newVersion;
             }
 
             return oldVersion;

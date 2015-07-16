@@ -2,19 +2,23 @@
 
 module myApp.view1 {
 
+    interface IView1ControllerScope  {
+        version:string;
+    }
 
-    class controller {
+    class controller implements IView1ControllerScope {
 
         private $log;
+        public version:string;
 
         public static $inject = ['$scope', '$log', 'sampleProvider'];
-        constructor(public $scope:ng.IScope,
+        constructor(public $scope:IView1ControllerScope,
                     $log:ng.ILogService,
                     sampleProvider:string)
         {
             this.$log = $log;
             this.logger('View1 Controller');
-            this.$scope.version = sampleProvider
+            this.version = sampleProvider;
 
         }
 
