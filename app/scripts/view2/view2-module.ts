@@ -14,7 +14,8 @@ module myApp.view2 {
     function config($routeProvider:ng.route.IRouteProvider):void {
         $routeProvider.when('/view2', {
             templateUrl: 'scripts/view2/view2.html',
-            controller: 'View2Ctrl'
+            controller: 'View2Ctrl',
+            controllerAs: 'view2Ctrl'
         });
     }
 

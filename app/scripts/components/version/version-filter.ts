@@ -4,7 +4,7 @@ module myApp.version {
     'use strict';
 
     angular.module('myApp.version.filter', [])
-        .filter('interpolate', filter);
+        .filter('interpolateVersion', filter);
 
     filter.$inject = ['version'];
     function filter(version:string):any {
