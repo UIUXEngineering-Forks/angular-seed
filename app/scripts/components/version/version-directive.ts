@@ -9,7 +9,8 @@ module myApp.version {
     function appVersion(version:string) {
         return {
             restrct: 'AE',
-            link: (scope:{}, elm, sttrs)=> {
+            link: (scope:any, elm, sttrs)=> {
+                scope.file = 'app/scripts/components/version/version-directive.ts';
                 elm.text(version);
             }
         }

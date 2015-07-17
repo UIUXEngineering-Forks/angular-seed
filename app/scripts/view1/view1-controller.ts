@@ -8,12 +8,12 @@ module myApp.view1 {
 
     class controller implements IView1ControllerScope {
 
-        private $log;
+        public file:string = 'app/scripts/view1/view1-controller.ts';
+        private $log:ng.ILogService;
         public version:string;
 
-        public static $inject = ['$scope', '$log', 'sampleProvider'];
-        constructor(public $scope:IView1ControllerScope,
-                    $log:ng.ILogService,
+        public static $inject = ['$log', 'sampleProvider'];
+        constructor($log,
                     sampleProvider:string)
         {
             this.$log = $log;
@@ -29,7 +29,7 @@ module myApp.view1 {
     }
 
     angular.module('myApp.view1.controller', [])
-        .controller('View1Ctrl', controller);
+        .controller('View1Controller', controller);
 
 
 }

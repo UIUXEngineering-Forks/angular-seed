@@ -3,7 +3,7 @@
 module myApp.sample {
 
 
-    export class provider implements ng.IServiceProvider {
+    class provider implements ng.IServiceProvider {
 
         //public static $inject = ['version'];
 

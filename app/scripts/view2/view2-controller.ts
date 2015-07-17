@@ -6,10 +6,10 @@ module myApp.view2 {
 
     class controller {
 
-        private $log;
+        private $log:ng.ILogService;
 
         public static $inject = ['$log'];
-        constructor($log:ng.ILogService) {
+        constructor($log) {
             this.$log = $log;
             this.logger('View2 Controller');
         }
@@ -21,7 +21,7 @@ module myApp.view2 {
     }
 
     angular.module('myApp.view2.controller', [])
-        .controller('View2Ctrl', controller);
+        .controller('View2Controller', controller);
 
     
 }

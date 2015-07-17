@@ -15,8 +15,8 @@ module myApp.view1 {
     function config($routeProvider:ng.route.IRouteProvider):void {
         $routeProvider.when('/view1', {
             templateUrl: 'scripts/view1/view1.html',
-            controller: 'View1Ctrl',
-            controllerAs: 'view1Ctrl'
+            controller: 'View1Controller',
+            controllerAs: 'view1Controller'
         });
     }
 }
