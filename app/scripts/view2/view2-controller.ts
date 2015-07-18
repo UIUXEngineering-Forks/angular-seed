@@ -7,16 +7,19 @@ module myApp.view2 {
     class controller {
 
         private $log:ng.ILogService;
+        private $scope: ng.IRootScopeService;
 
-        public static $inject = ['$log'];
-        constructor($log) {
+        public static $inject = ['$scope', '$log'];
+        constructor($scope, $log) {
+            this.$scope = $scope;
             this.$log = $log;
-            this.logger('View2 Controller');
+            this.$log.info('Create View2 Controller id: ', this.$scope.$id);
+
+            this.$scope.$on("$destroy", function(event:ng.IAngularEvent) {
+                console.info('View2 Controller $destroyed id:', event.targetScope.$id);
+            });
         }
 
-        private logger(value) {
-            this.$log.info(value);
-        }
 
     }
 

@@ -13,14 +13,16 @@ module myApp.sample {
             this.newVersion = newVersion;
         }
 
-        //TODO if can pass param into constructor
         constructor() {
-            //this.version = version;
-            this.$get.$inject = ['version'];
+            console.info('create sampleProvider');
+            this.$get.$inject = ['version', '$log'];
         }
 
 
-        $get(oldVersion:string):string {
+        $get(oldVersion:string, $log:ng.ILogService):string {
+
+            $log.info('calling sampleProvider');
+
             var _self = this;
 
             if (_self.newVersion) {
