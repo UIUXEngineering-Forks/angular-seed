@@ -1,41 +1,24 @@
 /// <reference path="../../../typings/angularjs/angular.d.ts" />
+/// <reference path="sample-factory.ts" />
+/// <reference path="../../../interfaces/sample-interfaces.ts" />
 
 module myApp.sample {
 
-    //TODO put in different file
-    export interface INumber {
-        base: number;
-        value: number;
-        exponent: number;
-    }
 
+    export class CalculateService implements myApp.ICalculate {
 
-    export interface IResult {
-        result: INumber;
-        value: number;
-    }
+        public $log:ng.ILogService;
+        public numberFactory:myApp.IFactory; //TODO fix this, should not be any
 
-    class service {
-
-        private $q:ng.IQService;
-        private $http:ng.IHttpService;
-
-        public static $inject = ['$q', '$http',];
-        constructor($q:ng.IQService, $http:ng.IHttpService) {
-            this.$q = $q;
-            this.$http = $http;
+        public static $inject = ['$log', 'sampleFactory',];
+        constructor($log:ng.ILogService, numberFactory) {
+            this.$log = $log;
+            this.numberFactory = numberFactory;
         }
 
-        //TODO what does "static" do?
-        static add(a:INumber, b:INumber): IResult {
+        public add(a:myApp.INumber, b:myApp.INumber): IResult {
             //var deferred:ng.IDeferred<IResult> = this.$q.defer();
-            var resultant:INumber = <INumber>{
-                base:10,
-                value: 0,
-                exponent: 1
-            };
-
-            resultant.value = a.value + b.value;
+            var resultant:myApp.INumber = this.numberFactory.createNumber( a.value + b.value);
 
             return <IResult>{
                 result: resultant,
@@ -44,6 +27,6 @@ module myApp.sample {
         }
     }
 
-    angular.module('myApp.sample.service', [])
-        .service('sampleService', service)
+    angular.module('myApp.sample.service', ['myApp.sample.factory'])
+        .service('sampleService', CalculateService)
 }
