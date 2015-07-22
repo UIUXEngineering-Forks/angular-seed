@@ -8,10 +8,13 @@ module myApp.view3 {
     angular.module('myApp.view3', [
         'ngRoute',
         'myApp.view3.controller'])
-        .config(config);
+        .config(config)
+        .run(run);
 
     config.$inject = ['$routeProvider'];
     function config($routeProvider:ng.route.IRouteProvider):void {
+        console.info("myApp.view3.comfig");
+
         $routeProvider
             .when('/view3', {
                 redirectTo: '/view3/1'
@@ -30,5 +33,9 @@ module myApp.view3 {
                     }]
                 }
             });
+    }
+
+    function run():void {
+        console.info("myApp.view3.run");
     }
 }

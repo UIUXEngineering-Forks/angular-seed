@@ -8,7 +8,8 @@ module myApp.view1 {
     angular.module('myApp.view1', [
         'ngRoute',
         'myApp.view1.controller'])
-        .config(config);
+        .config(config)
+        .run(run);
 
 
     config.$inject = ['$routeProvider'];
@@ -18,5 +19,9 @@ module myApp.view1 {
             controller: 'View1Controller',
             controllerAs: 'view1Controller'
         });
+    }
+
+    function run():void {
+        console.info("myApp.view1.run");
     }
 }

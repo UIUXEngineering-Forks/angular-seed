@@ -8,10 +8,13 @@ module myApp.view4 {
     angular.module('myApp.view4', [
         'ngRoute',
         'myApp.view4.controller'])
-        .config(config);
+        .config(config)
+        .run(run);
 
     config.$inject = ['$routeProvider'];
     function config($routeProvider:ng.route.IRouteProvider):void {
+        console.info("myApp.view4.comfig");
+
         $routeProvider
             .when('/view4', {
                 templateUrl: 'scripts/view4-resolve-route/view4.html',
@@ -38,6 +41,10 @@ module myApp.view4 {
                     }]
                 }
             });
+    }
+
+    function run():void {
+        console.info("myApp.view4.run");
     }
 
 

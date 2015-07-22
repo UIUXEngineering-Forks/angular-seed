@@ -8,12 +8,14 @@ module myApp.view5 {
     angular.module('myApp.view5', [
         'ngRoute',
         'myApp.view5.controller'])
-        .config(config);
+        .config(config)
+        .run(run);
 
     config.$inject = ['$routeProvider'];
     function config($routeProvider:ng.route.IRouteProvider):void {
-        $routeProvider
+        console.info("myApp.view5.comfig");
 
+        $routeProvider
             .when('/view5/:routeId', {
                 templateUrl: 'scripts/view5-resolve-route/view5.html',
                 controller: 'View5Controller',
@@ -28,6 +30,10 @@ module myApp.view5 {
                     }]
                 }
             });
+    }
+
+    function run():void {
+        console.info("myApp.view5.run");
     }
 
 
