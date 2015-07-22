@@ -8,6 +8,7 @@ module myApp {
 
     angular.module('myApp', [
         'ngRoute',
+        'ui.router',
         'myApp.view1',
         'myApp.view2',
         'myApp.view3',
