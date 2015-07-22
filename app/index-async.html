@@ -39,7 +39,6 @@ h&&m(h);return g})}})})(window)})(window);
 
     $script([
         'bower_components/angular/angular.js',
-        'bower_components/angular-route/angular-route.js',
         'scripts/app-module.js',
         'scripts/view1/view1-module.js',
         'scripts/view1/view1-controller.js',
@@ -47,10 +46,10 @@ h&&m(h);return g})}})})(window)})(window);
         'scripts/view2/view2-controller.js',
         'scripts/view3-resolve-route/view3-module.js',
         'scripts/view3-resolve-route/view3-controller.js',
-        'scripts/view4-resolve-route/view4-controller.js',
-        'scripts/view4-resolve-route/view4-module.js',
-        'scripts/view5-resolve-route/view5-controller.js',
-        'scripts/view5-resolve-route/view5-module.js',
+//        'scripts/view4-resolve-route/view4-controller.js',
+//        'scripts/view4-resolve-route/view4-module.js',
+//        'scripts/view5-resolve-route/view5-controller.js',
+//        'scripts/view5-resolve-route/view5-module.js',
         'scripts/components/version/version-module.js',
         'scripts/components/version/version-filter.js',
         'scripts/components/version/version-directive.js',
@@ -82,28 +81,28 @@ h&&m(h);return g})}})})(window)})(window);
     <li><a href="#/view2">view2</a></li>
   </ul>
 
-  <h4>Resolve on route with "redirectTo".</h4>
+  <h4>Resolve on route with "$stateParams".</h4>
   <ul class="menu">
       <li><a href="#/view3">view3</a></li>
       <li><a href="#/view3/0">view3/0</a></li>
       <li><a href="#/view3/1">view3/1</a></li>
   </ul>
 
-  <h4>Resolve on route with "$location" service.</h4>
-  <ul class="menu">
-      <li><a href="#/view4">view4</a></li>
-      <li><a href="#/view4/0">view4/0</a></li>
-      <li><a href="#/view4/1">view4/1</a></li>
-  </ul>
+  <!--<h4>Resolve on route with "$stateParams" with nested states.</h4>-->
+  <!--<ul class="menu">-->
+      <!--<li><a href="#/view4">view4</a></li>-->
+      <!--<li><a href="#/view4/0">view4/0</a></li>-->
+      <!--<li><a href="#/view4/1">view4/1</a></li>-->
+  <!--</ul>-->
 
-  <h4>Resolve on route without route registered.</h4>
-  <ul class="menu">
-      <li><a href="#/view5">view5</a></li>
-      <li><a href="#/view5/0">view5/0</a></li>
-      <li><a href="#/view5/1">view5/1</a></li>
-  </ul>
+  <!--<h4>Resolve on route without route registered.</h4>-->
+  <!--<ul class="menu">-->
+      <!--<li><a href="#/view5">view5</a></li>-->
+      <!--<li><a href="#/view5/0">view5/0</a></li>-->
+      <!--<li><a href="#/view5/1">view5/1</a></li>-->
+  <!--</ul>-->
 </div>
-  <div ng-view></div>
+  <div ui-view></div>
 
   <div>Angular seed app: v<span app-version></span></div>
 

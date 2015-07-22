@@ -1,46 +1,51 @@
 /// <reference path="../../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../../typings/angularjs/angular-route.d.ts" />
+/// <reference path="../../../typings/angular-ui-router/angular-ui-router.d.ts" />
 
 
 module myApp.view4 {
     'use strict';
 
     angular.module('myApp.view4', [
-        'ngRoute',
         'myApp.view4.controller'])
         .config(config)
         .run(run);
 
-    config.$inject = ['$routeProvider'];
-    function config($routeProvider:ng.route.IRouteProvider):void {
+    config.$inject = ['$stateProvider'];
+    function config($stateProvider:ng.ui.IStateProvider):void {
+       
         console.info("myApp.view4.comfig");
 
-        $routeProvider
-            .when('/view4', {
-                templateUrl: 'scripts/view4-resolve-route/view4.html',
-                controller: 'View4Controller',
-                controllerAs: 'View4Controller',
+        $stateProvider
+            .state('view4', {
+                url: "/view4",
                 resolve: {
-                    routeId: ['$log', '$location', function ($log, $location) {
-                        $log.info('/view4 in config: $location.path(\"/view4/1\"');
-                        $location.path("/view4/1");
+                    routeId: ['$log', '$stateParams', '$location', function ($log, $stateParams, $location) {
+
+                        $log.info('/view4 in config: ', $stateParams.routeId);
+                        $location.path('/view4/0')
                     }]
                 }
             })
-            .when('/view4/:routeId', {
+
+            //TODO view4.routeId does not work
+            .state('view4RouteId', {
+                url: "/view4/:routeId",
                 templateUrl: 'scripts/view4-resolve-route/view4.html',
                 controller: 'View4Controller',
                 controllerAs: 'View4Controller',
                 resolve: {
-                    routeId: ['$log', '$route', function ($log, $route) {
+                    routeId: ['$log', '$stateParams', function ($log, $stateParams) {
 
-                        $log.info('/view4/:routeId in config: ', $route.current.params.routeId);
+                        $log.info('/view4/:routeId in config: ', $stateParams.routeId);
 
-                        return $route.current.params.routeId
+                        return $stateParams.routeId
+
 
                     }]
                 }
             });
+        
+
     }
 
     function run():void {
