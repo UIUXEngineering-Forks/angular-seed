@@ -18,18 +18,29 @@ module myApp.view4 {
         $stateProvider
             .state('view4', {
                 url: "/view4",
+                //templateUrl: 'scripts/view4-resolve-route/view4.html',
+                controller: ['$state', 'routeId', function($state, routeId) {
+                    console.log('/view4 routeId', routeId);
+                    debugger;
+                    if (!routeId) {
+
+                        $state.go('view4.routeID', {routeId: 0});
+                    }
+                }],
                 resolve: {
-                    routeId: ['$log', '$stateParams', '$location', function ($log, $stateParams, $location) {
+                    routeId: ['$log', '$stateParams', '$location', '$state', function ($log, $stateParams, $location, $state) {
 
                         $log.info('/view4 in config: ', $stateParams.routeId);
-                        $location.path('/view4/0')
+                        //$state.go('view.routeID', {routeId: 0});
+                        //$location.path('/view4/0')
+                        return $stateParams.routeId;
                     }]
                 }
             })
 
             //TODO view4.routeId does not work
-            .state('view4RouteId', {
-                url: "/view4/:routeId",
+            .state('view4.routeID', {
+                url: "/{routeId:[0-9]}",
                 templateUrl: 'scripts/view4-resolve-route/view4.html',
                 controller: 'View4Controller',
                 controllerAs: 'View4Controller',

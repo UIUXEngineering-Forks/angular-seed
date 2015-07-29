@@ -15,7 +15,7 @@ module myApp.view2 {
         console.info("myApp.view2.comfig");
 
         $stateProvider.state('view2', {
-            url: "/view2",
+            url: "/view2/:routeId",
             templateUrl: 'scripts/view2/view2.html',
             controller: 'View2Controller',
             controllerAs: 'View2Controller'
